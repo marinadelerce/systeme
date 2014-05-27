@@ -58,9 +58,9 @@ public class BellmanFord {
 		String str = "";
 		for(int i = 0; i < graphe.getSommets().size(); i++){
 			if(graphe.getSommets().get(i).getCout() == 2147483647){
-				str += "\nSommet " + i + " coute infini";
+				str += "Sommet " + i + " coute infini. \n";
 			} else {
-				str += "\nSommet " + i + " coute " + graphe.getSommets().get(i).getCout();
+				str += "Sommet " + i + " coute " + graphe.getSommets().get(i).getCout() + ".\n";
 			}
 		}
 		return str;
