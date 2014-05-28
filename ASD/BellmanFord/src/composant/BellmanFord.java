@@ -54,6 +54,18 @@ public class BellmanFord {
 		return false;
 	}
 	
+	public String valeurDesSommets(char firstLettre){
+		String str = "";
+		for(int i = 0; i < graphe.getSommets().size(); i++){
+			if(graphe.getSommets().get(i).getCout() == 2147483647){
+				str += "Sommet " + (char)(firstLettre + i) + " coute infini. \n";
+			} else {
+				str += "Sommet " + (char)(firstLettre + i) + " coute " + graphe.getSommets().get(i).getCout() + ".\n";
+			}
+		}
+		return str;
+	}
+	
 	public String valeurDesSommets(){
 		String str = "";
 		for(int i = 0; i < graphe.getSommets().size(); i++){

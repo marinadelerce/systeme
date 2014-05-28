@@ -131,7 +131,7 @@ public class Main {
 		System.out.println("Graphe contenant uniquement des arcs de poids positifs.");
 		System.out.println("Bellman-Ford : " + bellmanFord.contientCycleNegatif());
 		System.out.println("Valeur des sommets du graphe :");
-		System.out.println(bellmanFord.valeurDesSommets());
+		System.out.println(bellmanFord.valeurDesSommets('a'));
 		System.out.println("---------------------------------------------------------");
 		
 		/**
@@ -161,7 +161,7 @@ public class Main {
 		System.out.println("Graphe contenant des arcs de poids reels.");
 		System.out.println("Bellman-Ford : " + bellmanFord.contientCycleNegatif());
 		System.out.println("Valeur des sommets du graphe :");
-		System.out.println(bellmanFord.valeurDesSommets());
+		System.out.println(bellmanFord.valeurDesSommets('a'));
 		System.out.println("---------------------------------------------------------");
 		
 		/**
@@ -176,14 +176,14 @@ public class Main {
 		sommets.add(new Sommet(5));
 		
 		arcs = new ArrayList<>();
-		arcs.add(new Arc(0, 1, 3));
+		arcs.add(new Arc(0, 1, -3));
 		arcs.add(new Arc(0, 2, 8));
 		arcs.add(new Arc(1, 2, 3));
-		arcs.add(new Arc(1, 3, -6));
-		arcs.add(new Arc(3, 4, 4));
-		arcs.add(new Arc(4, 5, -4));
-		arcs.add(new Arc(1, 5, 3));
-		arcs.add(new Arc(2, 5, 2));
+		arcs.add(new Arc(1, 3, 6));
+		arcs.add(new Arc(3, 4, -4));
+		arcs.add(new Arc(4, 5, 4));
+		arcs.add(new Arc(1, 5, 8));
+		arcs.add(new Arc(2, 5, -2));
 		
 		graphe.setSommets(sommets);
 		graphe.setArcs(arcs);
@@ -191,7 +191,7 @@ public class Main {
 		System.out.println("Graphe contenant des arcs de poids reels et un cycle non negatif.");
 		System.out.println("Bellman-Ford : " + bellmanFord.contientCycleNegatif());
 		System.out.println("Valeur des sommets du graphe :");
-		System.out.println(bellmanFord.valeurDesSommets());
+		System.out.println(bellmanFord.valeurDesSommets('a'));
 		System.out.println("---------------------------------------------------------");
 		
 		/**
@@ -207,13 +207,13 @@ public class Main {
 		
 		arcs = new ArrayList<>();
 		arcs.add(new Arc(0, 1, 3));
-		arcs.add(new Arc(1, 2, -6));
-		arcs.add(new Arc(2, 3, 4));
-		arcs.add(new Arc(3, 4, -4));
-		arcs.add(new Arc(1, 4, 8));
-		arcs.add(new Arc(4, 5, 2));
+		arcs.add(new Arc(1, 3, -6));
+		arcs.add(new Arc(3, 4, 4));
+		arcs.add(new Arc(4, 5, -4));
+		arcs.add(new Arc(5, 2, 2));
+		arcs.add(new Arc(2, 1, 3));
 		arcs.add(new Arc(1, 5, 8));
-		arcs.add(new Arc(5, 5, 2));
+		arcs.add(new Arc(0, 2, 8));
 		
 		graphe.setSommets(sommets);
 		graphe.setArcs(arcs);
@@ -221,7 +221,7 @@ public class Main {
 		System.out.println("Graphe contenant des arcs de poids reels et un cycle negatif.");
 		System.out.println("Bellman-Ford : " + bellmanFord.contientCycleNegatif());
 		System.out.println("Valeur des sommets du graphe :");
-		System.out.println(bellmanFord.valeurDesSommets());
+		System.out.println(bellmanFord.valeurDesSommets('a'));
 		System.out.println("---------------------------------------------------------");
 	}
 
