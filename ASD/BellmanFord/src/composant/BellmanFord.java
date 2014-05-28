@@ -23,20 +23,30 @@ public class BellmanFord {
 		/**
 		 * Relaxation
 		 */
-		int sommetDepart, sommetArrivee;
+		int sommetDepart, sommetArrivee, cpt = 0;
 		double coutTemp, coutArrivee;
+		boolean repeter = true;
 		for (int i = 0; i < graphe.getSommets().size() - 1; i++) {
-			for (int j = 0; j < graphe.getArcs().size(); j++) {
-				sommetDepart = graphe.getArcs().get(j).getDepart();
-				sommetArrivee = graphe.getArcs().get(j).getArrivee();
-				coutArrivee = graphe.getSommets().get(sommetArrivee).getCout();
-				coutTemp = graphe.getSommets().get(sommetDepart).getCout()
-						+ graphe.getArcs().get(j).getPoids();
-				if (coutArrivee > coutTemp) {
-					graphe.getSommets().get(sommetArrivee).setCout(coutTemp);
+			if (repeter) {
+				cpt++;
+				repeter = false;
+				for (int j = 0; j < graphe.getArcs().size(); j++) {
+					sommetDepart = graphe.getArcs().get(j).getDepart();
+					sommetArrivee = graphe.getArcs().get(j).getArrivee();
+					coutArrivee = graphe.getSommets().get(sommetArrivee)
+							.getCout();
+					coutTemp = graphe.getSommets().get(sommetDepart).getCout()
+							+ graphe.getArcs().get(j).getPoids();
+					if (coutArrivee > coutTemp) {
+						repeter = true;
+						graphe.getSommets().get(sommetArrivee)
+								.setCout(coutTemp);
+					}
 				}
 			}
 		}
+		
+		System.out.println(cpt);
 
 		/**
 		 * Verification
@@ -53,26 +63,29 @@ public class BellmanFord {
 		}
 		return false;
 	}
-	
-	public String valeurDesSommets(char firstLettre){
+
+	public String valeurDesSommets(char firstLettre) {
 		String str = "";
-		for(int i = 0; i < graphe.getSommets().size(); i++){
-			if(graphe.getSommets().get(i).getCout() == 2147483647){
-				str += "Sommet " + (char)(firstLettre + i) + " coute infini. \n";
+		for (int i = 0; i < graphe.getSommets().size(); i++) {
+			if (graphe.getSommets().get(i).getCout() == 2147483647) {
+				str += "Sommet " + (char) (firstLettre + i)
+						+ " coute infini. \n";
 			} else {
-				str += "Sommet " + (char)(firstLettre + i) + " coute " + graphe.getSommets().get(i).getCout() + ".\n";
+				str += "Sommet " + (char) (firstLettre + i) + " coute "
+						+ graphe.getSommets().get(i).getCout() + ".\n";
 			}
 		}
 		return str;
 	}
-	
-	public String valeurDesSommets(){
+
+	public String valeurDesSommets() {
 		String str = "";
-		for(int i = 0; i < graphe.getSommets().size(); i++){
-			if(graphe.getSommets().get(i).getCout() == 2147483647){
+		for (int i = 0; i < graphe.getSommets().size(); i++) {
+			if (graphe.getSommets().get(i).getCout() == 2147483647) {
 				str += "Sommet " + i + " coute infini. \n";
 			} else {
-				str += "Sommet " + i + " coute " + graphe.getSommets().get(i).getCout() + ".\n";
+				str += "Sommet " + i + " coute "
+						+ graphe.getSommets().get(i).getCout() + ".\n";
 			}
 		}
 		return str;
